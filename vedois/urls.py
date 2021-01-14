@@ -15,8 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from vedois.production import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('production/', include('vedois.production.urls')),
+    path('login/', views.do_login),
+    path('login/submit', views.UserTerminalViewSet.login),
+    path('logout/', views.do_logout),
+    path('logout/submit', views.UserTerminalViewSet.logout),
 ]
